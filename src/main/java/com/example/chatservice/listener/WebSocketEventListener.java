@@ -1,6 +1,5 @@
 package com.example.chatservice.listener;
 
-import com.example.chatservice.service.StateManagementService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import java.util.Locale;
 @RequiredArgsConstructor
 public class WebSocketEventListener {
 
-    private final StateManagementService stateManagementService;
+//    private final StateManagementService stateManagementService;
 
     @EventListener
     public void handleWebSocketConnectListener(SessionConnectedEvent event) {
@@ -39,7 +38,7 @@ public class WebSocketEventListener {
         log.info("[DISCONNECTED] websocket session id : {}", sessionId);
         System.out.println("");
 
-        stateManagementService.sendChannelOutState("","",sessionId);
+//        stateManagementService.sendChannelOutState("","",sessionId);
 
     }
 

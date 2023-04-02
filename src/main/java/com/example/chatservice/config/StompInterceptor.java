@@ -1,6 +1,5 @@
 package com.example.chatservice.config;
 
-import com.example.chatservice.service.StateManagementService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
@@ -18,7 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class StompInterceptor implements ChannelInterceptor {
 
-    private final StateManagementService stateManagementService;
+//    private final StateManagementService stateManagementService;
 
     @Override
     public Message<?> preSend(Message<?> message, MessageChannel channel) {
@@ -34,7 +33,7 @@ public class StompInterceptor implements ChannelInterceptor {
             log.info("[CONNECTED] userId : {}", userId);
             log.info("[CONNECTED] channelId : {}", channelId);
             log.info("[CONNECTED] simpSessionId : {}", sessionId);
-            stateManagementService.sendChannelInState(userId,channelId,sessionId);
+//            stateManagementService.sendChannelInState(userId,channelId,sessionId);
 
         }
         if(stompHeaderAccessor.getCommand() == StompCommand.SUBSCRIBE){
